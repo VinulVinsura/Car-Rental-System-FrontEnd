@@ -1,0 +1,17 @@
+.container{
+
+    background-image: url("/assets/img/3.webp");
+    height: 100vh !important;
+    width: 100% !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: cover !important;
+    max-width: 100% !important;
+    position: relative !important;
+}
+
+.w-99{
+    border: 3px solid rgb(0, 0, 0) !important;
+    border-radius: 15px !important;
+    
+}
