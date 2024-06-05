@@ -1,0 +1,15 @@
+.container{
+    background-image: url("/assets/img/5.jpg");
+    background-position: center !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    height: 100vh !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+
+}
+
+.w-99{
+    border-radius: 15px !important;
+    border: 3px solid whitesmoke;
+}
