@@ -41,8 +41,13 @@ export class SignUpComponent {
           icon: "error",
           title: "User Save Unsuccessfully !",
           text: "Something went wrong!",
-          footer: '<a href="#">Why do I have this issue?</a>'
+        
         });
+        this.user={
+          username:null,
+          email:null,
+          password:null
+        }
       }
     })
 
