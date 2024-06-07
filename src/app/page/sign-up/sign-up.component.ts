@@ -3,13 +3,14 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { NavBarComponent } from "../../common/nav-bar/nav-bar.component";
 
 @Component({
-  selector: 'app-sign-up',
-  standalone: true,
-  imports: [HttpClientModule,FormsModule,CommonModule],
-  templateUrl: './sign-up.component.html',
-  styleUrl: './sign-up.component.css'
+    selector: 'app-sign-up',
+    standalone: true,
+    templateUrl: './sign-up.component.html',
+    styleUrl: './sign-up.component.css',
+    imports: [HttpClientModule, FormsModule, CommonModule, NavBarComponent]
 })
 export class SignUpComponent {
 
