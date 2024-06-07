@@ -3,6 +3,7 @@ import { LoginComponent } from './page/login/login.component';
 import { SignUpComponent } from './page/sign-up/sign-up.component';
 import { AdminComponent } from './page/admin/admin.component';
 import { CustomerComponent } from './page/customer/customer.component';
+import { AddCarComponent } from './page/add-car/add-car.component';
 
 
 export const routes: Routes = [
@@ -27,6 +28,10 @@ export const routes: Routes = [
   {
     path:"customer",
     component:CustomerComponent
+  },
+  {
+    path:"add-car",
+    component:AddCarComponent
   }
  
 
