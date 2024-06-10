@@ -1,4 +1,4 @@
-<app-nav-bar-admin></app-nav-bar-admin>
+<div class="row"><app-nav-bar-admin></app-nav-bar-admin></div>
 <div class="container">
     <div class="row">
         <div class="col-3"></div>
@@ -12,12 +12,12 @@
             </div>
 
             <div class="text-center">
-                <input type="file" name="" id="" (change)="isSelectImg($event)">
+                <input type="file" name="imageFile" id="" (change)="isSelectImg($event)">
             </div>
 
               <div class="mb-4">
               <label for="brand" class="form-label"><b><i>Brand Name</i></b></label>
-              <select class="form-select" id="brand" required>
+              <select class="form-select" id="brand" required [(ngModel)]="car.brand"  [ngModelOptions]="{standalone: true}"> 
                 <option value="">Choose...</option>
                 <option *ngFor="let brand of brands" value="{{brand}}">{{brand}}</option>
               </select>
@@ -28,12 +28,12 @@
 
             <div class=" mb-3">
                 <label class="mb-2" for=""><b><i>Name</i></b></label>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" [(ngModel)]="car.name"  [ngModelOptions]="{standalone: true}">
              </div>
 
              <div class="mb-4">
                 <label for="type" class="form-label"><b><i>Car Type</i></b></label>
-                <select class="form-select" id="type" required>
+                <select class="form-select" id="type" required [(ngModel)]="car.type"  [ngModelOptions]="{standalone: true}">
                   <option value="">Choose...</option>
                   <option *ngFor="let type of types" value="{{type}}">{{type}}</option>
                 </select>
@@ -44,7 +44,7 @@
 
               <div class="mb-4">
                 <label for="transmission" class="form-label"><b><i>Car Transmission</i></b></label>
-                <select class="form-select" id="transmission" required>
+                <select class="form-select" id="transmission" required [(ngModel)]="car.transmission"  [ngModelOptions]="{standalone: true}">
                   <option value="">Choose...</option>
                   <option *ngFor="let transmission of transmissions" value="{{transmission}}">{{transmission}}</option>
                 </select>
@@ -55,7 +55,7 @@
 
               <div class="mb-4">
                 <label for="color" class="form-label"><b><i>Color</i></b></label>
-                <select class="form-select" id="color" required>
+                <select class="form-select" id="color" required [(ngModel)]="car.color"  [ngModelOptions]="{standalone: true}">
                   <option value="">Choose...</option>
                   <option *ngFor="let color of Colors" value="{{color}}">{{color}}</option>
                 </select>
@@ -67,9 +67,17 @@
               
               <div class="col-md-5 mb-5">
                 <label for="country" class="form-label"><b><i>Model Year</i></b></label>
-                <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" [(ngModel)]="car.year"  [ngModelOptions]="{standalone: true}" >
                 <div class="invalid-feedback">
                   Please select a valid Model Year.
+                </div>
+              </div>
+
+              <div class=" mb-5">
+                <label for="country" class="form-label text-dark"><b><i>Description</i></b></label><br>
+                <textarea class="tab-pane" id="" cols="72" rows="2"  [(ngModel)]="car.description"  [ngModelOptions]="{standalone: true}"></textarea>
+                <div class="invalid-feedback">
+                  Please select a valid Description.
                 </div>
               </div>
              
@@ -77,19 +85,13 @@
 
               <div class="input-group mb-5">
                 <span class="input-group-text" id="inputGroup-sizing-default"><b><i>Price</i></b></span>
-                <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" [(ngModel)]="car.price"  [ngModelOptions]="{standalone: true}">
              </div>
 
-             <div class=" mb-5">
-                <label for="country" class="form-label"><b><i>Description</i></b></label><br>
-                <textarea class="tab-pane" id="" cols="72" rows="2"></textarea>
-                <div class="invalid-feedback">
-                  Please select a valid Description.
-                </div>
-              </div>
+            
 
               <div>
-                <button class="btn btn-success w-100 " >Post Car</button>
+                <button class="btn btn-success w-100 " (click)="addCar()">Post Car</button>
               </div>
               
            

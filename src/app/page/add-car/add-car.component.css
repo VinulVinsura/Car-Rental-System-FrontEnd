@@ -1,11 +1,12 @@
 .container{
-
-   
+    background-image: url("/assets/img/7.png");
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
     height: 180vh !important;
     width: 100% !important;
-  
-  
     max-width: 100% !important;
+    position: relative !important;
 
 }
 
