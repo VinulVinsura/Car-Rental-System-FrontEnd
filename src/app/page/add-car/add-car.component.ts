@@ -11,6 +11,8 @@ import {
 import { Injectable } from '@angular/core';
 import { pipe, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import Swal from 'sweetalert2';
+import { Router, RouterLink } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +22,7 @@ import { catchError } from 'rxjs/operators';
   standalone: true,
   templateUrl: './add-car.component.html',
   styleUrl: './add-car.component.css',
-  imports: [NavBarAdminComponent, FormsModule, CommonModule, HttpClientModule],
+  imports: [NavBarAdminComponent, FormsModule, CommonModule, HttpClientModule,RouterLink],
 })
 export class AddCarComponent {
   brands: any = ['BMW', 'AUDI', 'TESLA', 'VOLVO', 'TOYOTA', 'HONDA', 'FERRARI'];
@@ -43,7 +45,7 @@ export class AddCarComponent {
     image: null,
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private route:Router ) {}
 
   isSelectImg(e: any) {
     this.selecedFile = e.target.files[0];
@@ -81,6 +83,15 @@ export class AddCarComponent {
       }).pipe(
         catchError(this.handleError)
       ).subscribe((data) => {
+        if(data != null){
+          Swal.fire({
+            title: "Car Save Successfully!",
+            text: "You clicked the button!",
+            icon: "success"
+          });
+         
+        }
+        this.route.navigate(['/admin'])
         console.log(data);
       });
   }
