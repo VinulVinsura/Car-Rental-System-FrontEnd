@@ -5,3 +5,15 @@
 .img-thumbnail{
     border-radius: 20px;
 }
+
+.mt-2{
+    background-color: aliceblue;
+    width: 100% !important;
+    background-position: center !important;
+    background-size: cover !important;
+    position: relative !important;
+    border-radius: 10px !important;
+    box-shadow: 10pc !important;
+}
+
+
