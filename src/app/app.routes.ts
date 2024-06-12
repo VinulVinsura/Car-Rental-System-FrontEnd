@@ -35,7 +35,7 @@ export const routes: Routes = [
     component:AddCarComponent
   },
   {
-    path:"update/:id",
+    path:"update/:id", //set router concat car id
     component:UpdatePageComponent
   }
  

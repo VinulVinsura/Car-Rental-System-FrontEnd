@@ -1,1 +1,164 @@
-<p>update-page works!</p>
+<div class="row"><app-nav-bar-admin></app-nav-bar-admin></div>
+<div class="container">
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <br /><br /><br />
+
+      <form class="shadow p-5 w-99 mx-auto py-5">
+        <div>
+          <h1 class="text-center mb-3"><b>Update Form</b></h1>
+        </div>
+        <div class="text-center mb-2">
+          <img [src]="car.img" width="250rem" alt="" class="preViewImg" />
+        </div>
+
+        <div class="mb-4">
+          <label for="brand" class="form-label"
+            ><b>Brand Name</b></label
+          >
+          <select
+            class="form-select"
+            id="brand"
+            required
+            [(ngModel)]="car.brand"
+            [ngModelOptions]="{ standalone: true }"
+          >
+            <option value="">Choose...</option>
+            <option *ngFor="let brand of brands" value="{{brand}}">
+              {{ brand }}
+            </option>
+          </select>
+          <div class="invalid-feedback">Please select a valid Brand Name.</div>
+        </div>
+
+        <div class="mb-3">
+          <label class="mb-2" for=""
+            ><b>Name</b></label
+          >
+          <input
+            type="text"
+            class="form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+            [(ngModel)]="car.name"
+            [ngModelOptions]="{ standalone: true }"
+          />
+        </div>
+
+        <div class="mb-4">
+          <label for="type" class="form-label"
+            ><b>Car Type</b></label
+          >
+          <select
+            class="form-select"
+            id="type"
+            required
+            [(ngModel)]="car.type"
+            [ngModelOptions]="{ standalone: true }"
+          >
+            <option value="">Choose...</option>
+            <option *ngFor="let type of types" value="{{ type }}">
+              {{ type }}
+            </option>
+          </select>
+          <div class="invalid-feedback">Please select a valid Car Type.</div>
+        </div>
+
+        <div class="mb-4">
+          <label for="transmission" class="form-label"
+            ><b>Car Transmission</b></label
+          >
+          <select
+            class="form-select"
+            id="transmission"
+            required
+            [(ngModel)]="car.transmission"
+            [ngModelOptions]="{ standalone: true }"
+          >
+            <option value="">Choose...</option>
+            <option
+              *ngFor="let transmission of transmissions"
+              value="{{ transmission }}"
+            >
+              {{ transmission }}
+            </option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a valid Transmission.
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label for="color" class="form-label"
+            ><b>Color</b></label
+          >
+          <select
+            class="form-select"
+            id="color"
+            required
+            [(ngModel)]="car.color"
+            [ngModelOptions]="{ standalone: true }"
+          >
+            <option value="">Choose...</option>
+            <option *ngFor="let color of Colors" value="{{ color }}">
+              {{ color }}
+            </option>
+          </select>
+          <div class="invalid-feedback">Please select a valid color.</div>
+        </div>
+
+        <div class="col-md-5 mb-4">
+          <label for="country" class="form-label"
+            ><b>Model Year</b></label
+          >
+          <input
+            type="date"
+            class="form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+            [(ngModel)]="car.year"
+            [ngModelOptions]="{ standalone: true }"
+          />
+          <div class="invalid-feedback">Please select a valid Model Year.</div>
+        </div>
+
+        <div class="mb-5">
+          <label for="country" class="form-label text-dark"
+            ><b>Description</b></label
+          ><br />
+          <textarea
+            class="tab-pane"
+            id=""
+            cols="72"
+            rows="2"
+            [(ngModel)]="car.description"
+            [ngModelOptions]="{ standalone: true }"
+          ></textarea>
+          <div class="invalid-feedback">Please select a valid Description.</div>
+        </div>
+
+        <div class="input-group mb-5">
+          <span class="input-group-text" id="inputGroup-sizing-default"
+            ><b>Price</b></span
+          >
+          <input
+            type="number"
+            class="form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+            [(ngModel)]="car.price"
+            [ngModelOptions]="{ standalone: true }"
+          />
+        </div>
+
+        <div>
+          <button class="btn btn-primary w-100" (click)="updateCarDetails()">
+             Update
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="col-3"></div>
+  </div>
+</div>
