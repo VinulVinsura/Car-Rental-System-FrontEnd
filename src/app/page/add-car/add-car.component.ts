@@ -22,7 +22,13 @@ import { Router, RouterLink } from '@angular/router';
   standalone: true,
   templateUrl: './add-car.component.html',
   styleUrl: './add-car.component.css',
-  imports: [NavBarAdminComponent, FormsModule, CommonModule, HttpClientModule,RouterLink],
+  imports: [
+    NavBarAdminComponent,
+    FormsModule,
+    CommonModule,
+    HttpClientModule,
+    RouterLink,
+  ],
 })
 export class AddCarComponent {
   brands: any = ['BMW', 'AUDI', 'TESLA', 'VOLVO', 'TOYOTA', 'HONDA', 'FERRARI'];
@@ -45,7 +51,7 @@ export class AddCarComponent {
     image: null,
   };
 
-  constructor(private http: HttpClient, private route:Router ) {}
+  constructor(private http: HttpClient, private route: Router) {}
 
   isSelectImg(e: any) {
     this.selecedFile = e.target.files[0];
@@ -64,6 +70,7 @@ export class AddCarComponent {
 
   addCar() {
     const formData: FormData = new FormData();
+
     formData.append('brand', this.car.brand);
     formData.append('name', this.car.name);
     formData.append('type', this.car.type);
@@ -74,24 +81,22 @@ export class AddCarComponent {
     formData.append('price', this.car.price);
     formData.append('image', this.car.image);
     console.log(formData);
-    console.log(this.car.image.name)
+
     this.http
       .post('http://localhost:9001/api/car/add-car', formData, {
-        reportProgress:true,
+        reportProgress: true,
         observe: 'body',
-        
-      }).pipe(
-        catchError(this.handleError)
-      ).subscribe((data) => {
-        if(data != null){
+      })
+      .pipe(catchError(this.handleError))
+      .subscribe((data) => {
+        if (data != null) {
           Swal.fire({
-            title: "Car Save Successfully!",
-            text: "You clicked the button!",
-            icon: "success"
+            title: 'Car Save Successfully!',
+            text: 'You clicked the button!',
+            icon: 'success',
           });
-         
         }
-        this.route.navigate(['/admin'])
+        this.route.navigate(['/admin']);
         console.log(data);
       });
   }
