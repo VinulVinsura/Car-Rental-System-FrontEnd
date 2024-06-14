@@ -70,7 +70,6 @@ export class AddCarComponent {
 
   addCar() {
     const formData: FormData = new FormData();
-
     formData.append('brand', this.car.brand);
     formData.append('name', this.car.name);
     formData.append('type', this.car.type);
