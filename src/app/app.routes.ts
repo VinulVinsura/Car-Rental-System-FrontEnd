@@ -5,6 +5,7 @@ import { AdminComponent } from './page/admin/admin.component';
 import { CustomerComponent } from './page/customer/customer.component';
 import { AddCarComponent } from './page/add-car/add-car.component';
 import { UpdatePageComponent } from './page/update-page/update-page.component';
+import { SearchCarComponent } from './page/search-car/search-car.component';
 
 
 export const routes: Routes = [
@@ -37,6 +38,10 @@ export const routes: Routes = [
   {
     path:"update/:id", //set router concat car id
     component:UpdatePageComponent
+  },
+  {
+    path:"search-car",
+    component:SearchCarComponent
   }
  
 

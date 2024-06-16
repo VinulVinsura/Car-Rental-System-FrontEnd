@@ -1,1 +1,25 @@
 <app-nav-bar-customer></app-nav-bar-customer>
+
+<div class="container " >
+    <br><br>
+    <div class="row mt-2" *ngFor="let car of carList">
+        <div class="col-3">
+            <img [src]="car.img" class="img-thumbnail" alt="... " width="300rem">
+        </div>
+        <div class="col-9">
+            <h2 class="text" ><b>{{car.brand}} - {{car.name}}</b></h2>
+            <p>{{car.description}}</p>
+
+            <hr><br>
+            <div class="lable">
+                <br>
+                <h4 class="text-center ">Price : <b>${{car.price}}</b> | Color : <b>{{car.color}}</b> | Transmission : <b>{{car.transmission}}</b> | Type : <b>{{car.type}}</b> | Model Year : <b>{{car.year}}</b></h4>
+            </div>
+            
+            <hr>
+            <div class="text-end">
+                
+            </div>
+        </div>
+    </div>
+</div>

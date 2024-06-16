@@ -23,7 +23,10 @@ export class CustomerComponent implements OnInit{
 
     getAllCarDetails(){
         this.http.get(this.Base_Url+"/api/car/customer/get-car").subscribe((res)=>{
-            console.log(res);
+            this.carList=res;
+            this.carList.forEach((element:any)=>{
+                element.img="data:image/jpeg;base64," +element.img;
+            })
         })
     }
 
