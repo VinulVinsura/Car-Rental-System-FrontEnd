@@ -13,11 +13,12 @@
           </ul>
   
           <form class="col-12 col-lg-auto mb-1 mb-lg-0 me-lg-3 " role="search">
-            <button  type="button" class="btn btn-dark  m-1" >Dashboard</button>
+            <button  type="button" class="btn btn-dark  m-1" [routerLink]="['/customer']" >Dashboard</button>
+            <button  type="button" class="btn btn-dark  m-1" [routerLink]="['/search-car-customer']" >Search</button>
           </form>
   
           <div class="text-end">
-            <button  type="button" class="btn btn-success  m-0" [routerLink]="['/login']">LogOut</button>
+            <button  type="button" class="btn btn-danger  m-0" [routerLink]="['/login']">LogOut</button>
   
           </div>
         </div>

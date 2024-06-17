@@ -6,6 +6,7 @@ import { CustomerComponent } from './page/customer/customer.component';
 import { AddCarComponent } from './page/add-car/add-car.component';
 import { UpdatePageComponent } from './page/update-page/update-page.component';
 import { SearchCarComponent } from './page/search-car/search-car.component';
+import { SearchCarCustomerComponent } from './page/search-car-customer/search-car-customer.component';
 
 
 export const routes: Routes = [
@@ -42,6 +43,10 @@ export const routes: Routes = [
   {
     path:"search-car",
     component:SearchCarComponent
+  },
+  {
+    path:"search-car-customer",
+    component:SearchCarCustomerComponent
   }
  
 
