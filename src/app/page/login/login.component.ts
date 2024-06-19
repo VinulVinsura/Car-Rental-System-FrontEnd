@@ -24,8 +24,6 @@ export class LoginComponent {
   };
 
   login() {
-    console.log(this.loginDetails);
-    
     this.http
       .post('http://localhost:9000/api/login/validation', this.loginDetails)
       .subscribe((data: any) => {
@@ -34,12 +32,9 @@ export class LoginComponent {
             if(data.userRole=="Admin"){
                 this.route.navigate(['/admin'])
             }else{
-              this.route.navigate(['/customer'])
+              this.route.navigate(["/customer/"+data.id])
 
             }
-            
-            
-          
             
           }else{
             Swal.fire({
