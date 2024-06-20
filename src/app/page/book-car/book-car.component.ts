@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NavBarCustomerComponent } from "../../common/nav-bar-customer/nav-bar-customer.component";
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-book-car',
@@ -17,19 +18,48 @@ export class BookCarComponent implements OnInit{
     carId:any=this.activeRouter.snapshot.params["carId"];
     userId:any=this.activeRouter.snapshot.params["userId"];
     carObj:any="";
+    formData:any=""
+    toData:any=""
+    
 
-    constructor(private activeRouter:ActivatedRoute, private http:HttpClient){}
+    constructor(private activeRouter:ActivatedRoute, private http:HttpClient ,private route:Router){}
     ngOnInit() {
         this.getCarById()
-        console.log(this.carId)
+        
     }
 
     getCarById(){
         this.http.get("http://localhost:9001/api/car/customer/get-car-byId/"+this.carId).subscribe((res)=>{
-            console.log(res);
+          
             this.carObj=res;
             this.carObj.img="data:image/jpeg;base64,"+this.carObj.img;
         })
+    }
+
+    bookCar(){
+
+       const bookCarObj:any={
+            fromDate:this.formData,
+            toDate:this.toData,
+            price:this.carObj.price,
+            userId:this.userId,
+            carId:this.carId
+        }
+
+        this.http.post("http://localhost:9002/api/book-car/save-car",bookCarObj).subscribe((res)=>{
+            if(res!=null){
+                Swal.fire({
+                    title: `"${this.carObj.brand}" Car Book Successfully ..!`,
+                    text: "You clicked the button!",
+                    icon: "success"
+                    
+                  });
+                  this.route.navigate(['/customer/'+this.userId]);
+            }
+            
+                   
+            })
+
     }
 
 }
