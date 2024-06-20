@@ -1,0 +1,27 @@
+<app-nav-bar-customer></app-nav-bar-customer>
+
+<div class="container " >
+    <br><br>
+    <div class="row mt-2" >
+        <div class="col-3">
+            <img [src]="carObj.img" class="img-thumbnail" alt="... " width="300rem">
+        </div>
+        <div class="col-9">
+            <h1 class="text" ><b>{{carObj.brand}} - {{carObj.name}}</b></h1>
+            <h3>{{carObj.description}}</h3>
+
+            <hr><br>
+            <div class="lable">
+                <h4>Price : <b>${{carObj.price}}</b> <br>
+               Color : <b>{{carObj.color}}</b> <br>
+               Transmission : <b>{{carObj.transmission}}</b> <br>
+               Type : <b>{{carObj.type}}</b> <br>
+               Model Year : <b>{{carObj.year}}</b></h4>
+            </div>
+            
+            <hr>
+            
+            
+        </div>
+    </div>
+</div>

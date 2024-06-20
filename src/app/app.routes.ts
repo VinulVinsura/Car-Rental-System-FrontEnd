@@ -7,7 +7,8 @@ import { AddCarComponent } from './page/add-car/add-car.component';
 import { UpdatePageComponent } from './page/update-page/update-page.component';
 import { SearchCarComponent } from './page/search-car/search-car.component';
 import { SearchCarCustomerComponent } from './page/search-car-customer/search-car-customer.component';
-import { BookCarComponent } from './book-car/book-car.component';
+import { BookCarComponent } from './page/book-car/book-car.component';
+
 
 
 export const routes: Routes = [
@@ -32,6 +33,11 @@ export const routes: Routes = [
   {
     path:"customer/:userId",
     component:CustomerComponent
+  },
+  {
+    path:"customer",
+    redirectTo:"customer/:userId",
+    pathMatch:'full'
   },
   {
     path:"add-car",
