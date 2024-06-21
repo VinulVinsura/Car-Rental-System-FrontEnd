@@ -8,6 +8,7 @@ import { UpdatePageComponent } from './page/update-page/update-page.component';
 import { SearchCarComponent } from './page/search-car/search-car.component';
 import { SearchCarCustomerComponent } from './page/search-car-customer/search-car-customer.component';
 import { BookCarComponent } from './page/book-car/book-car.component';
+import { MyBookingComponent } from './page/my-booking/my-booking.component';
 
 
 
@@ -53,6 +54,10 @@ export const routes: Routes = [
   {
     path:"book-car/:carId",
     component:BookCarComponent
+  },
+  {
+    path:"my-booking",
+    component:MyBookingComponent
   }
  
 

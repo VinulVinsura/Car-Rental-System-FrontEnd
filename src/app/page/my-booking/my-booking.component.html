@@ -1,0 +1,30 @@
+<app-nav-bar-customer></app-nav-bar-customer>
+
+<div class="container">
+    <br><br>
+    <div class="row">
+        
+        <table class="table table-striped table-hover ">
+            <thead>
+              <tr>
+                <th scope="col">No</th>
+                <th scope="col">From Data</th>
+                <th scope="col">To Data</th>
+                <th scope="col">Days</th>
+                <th scope="col">Price</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let bookCar of bookCarList; let i=index" >
+                    <td>{{i+1}}</td>
+                    <td>{{bookCar.fromDate | date: 'MMM d, y'}}</td>
+                    <td>{{bookCar.toDate | date: 'MMM d, y'}}</td>
+                    <td>{{bookCar.days}}</td>
+                    <td>{{bookCar.price}}</td>
+                    <td>{{bookCar.status}}</td>
+                </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
