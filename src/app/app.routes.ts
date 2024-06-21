@@ -31,13 +31,8 @@ export const routes: Routes = [
     component:AdminComponent
   },
   {
-    path:"customer/:userId",
-    component:CustomerComponent
-  },
-  {
     path:"customer",
-    redirectTo:"customer/:userId",
-    pathMatch:'full'
+    component:CustomerComponent
   },
   {
     path:"add-car",
@@ -56,7 +51,7 @@ export const routes: Routes = [
     component:SearchCarCustomerComponent
   },
   {
-    path:"book-car/:userId/:carId",
+    path:"book-car/:carId",
     component:BookCarComponent
   }
  

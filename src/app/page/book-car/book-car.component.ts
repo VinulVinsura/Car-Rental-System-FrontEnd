@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
 
+import { StorageService } from '../../storage/storage.service';
+
 @Component({
     selector: 'app-book-car',
     standalone: true,
@@ -16,19 +18,21 @@ import Swal from 'sweetalert2';
 export class BookCarComponent implements OnInit{
 
     carId:any=this.activeRouter.snapshot.params["carId"];
-    userId:any=this.activeRouter.snapshot.params["userId"];
+    
     carObj:any="";
     formData:any=""
     toData:any=""
     
 
-    constructor(private activeRouter:ActivatedRoute, private http:HttpClient ,private route:Router){}
+    constructor(private activeRouter:ActivatedRoute, private http:HttpClient ,private route:Router, private storageService:StorageService){}
+   
     ngOnInit() {
         this.getCarById()
         
-    }
+       }
 
     getCarById(){
+        
         this.http.get("http://localhost:9001/api/car/customer/get-car-byId/"+this.carId).subscribe((res)=>{
           
             this.carObj=res;
@@ -42,7 +46,7 @@ export class BookCarComponent implements OnInit{
             fromDate:this.formData,
             toDate:this.toData,
             price:this.carObj.price,
-            userId:this.userId,
+            userId:this.storageService.getUserId(),
             carId:this.carId
         }
 
@@ -54,7 +58,7 @@ export class BookCarComponent implements OnInit{
                     icon: "success"
                     
                   });
-                  this.route.navigate(['/customer/'+this.userId]);
+                  this.route.navigate(['/customer']);
             }
             
                    

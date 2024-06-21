@@ -7,6 +7,7 @@ import e, { response } from 'express';
 import { text } from 'stream/consumers';
 import Swal from 'sweetalert2';
 import { NavBarComponent } from "../../common/nav-bar/nav-bar.component";
+import { StorageService } from '../../storage/storage.service';
 
 @Component({
     selector: 'app-login',
@@ -16,7 +17,7 @@ import { NavBarComponent } from "../../common/nav-bar/nav-bar.component";
     imports: [HttpClientModule, FormsModule, CommonModule, RouterLink, NavBarComponent]
 })
 export class LoginComponent {
-  constructor(private http: HttpClient, private route:Router) {}
+  constructor(private http: HttpClient, private route:Router , private storageService:StorageService) {}
 
   loginDetails: any = {
     email: null,
@@ -31,9 +32,10 @@ export class LoginComponent {
           if(data!= null){
             if(data.userRole=="Admin"){
                 this.route.navigate(['/admin'])
+                this.storageService.setUserId(data.id);
             }else{
-              this.route.navigate(["/customer/"+data.id])
-
+              this.route.navigate(["/customer"])
+              this.storageService.setUserId(data.id);
             }
             
           }else{
