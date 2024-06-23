@@ -9,6 +9,7 @@ import { SearchCarComponent } from './page/search-car/search-car.component';
 import { SearchCarCustomerComponent } from './page/search-car-customer/search-car-customer.component';
 import { BookCarComponent } from './page/book-car/book-car.component';
 import { MyBookingComponent } from './page/my-booking/my-booking.component';
+import { ShowBookingsComponent } from './page/show-bookings/show-bookings.component';
 
 
 
@@ -58,6 +59,10 @@ export const routes: Routes = [
   {
     path:"my-booking",
     component:MyBookingComponent
+  },
+  {
+    path:"show-bookings",
+    component:ShowBookingsComponent
   }
  
 
