@@ -15,10 +15,12 @@
                 <th scope="col">Days</th>
                 <th scope="col">Price</th>
                 <th scope="col">Status</th>
+                <th scope="col">Action</th>
+
               </tr>
             </thead>
-            <tbody>
-                <tr *ngFor="let booking of allBookings ; let i=index"  >
+            <tbody  *ngFor="let booking of allBookings ; let i=index" >
+                <tr >
                     <td>{{i+1}}</td>
                     <td>{{booking.username}}</td>
                     <td>{{booking.email}}</td>
@@ -27,6 +29,8 @@
                     <td>{{booking.bookings.days}}</td>
                     <td>{{booking.bookings.price}}</td>
                     <td class="text-danger"><b>{{booking.bookings.status}}</b></td>
+                    <td ><button *ngIf="booking.bookings.status == 'PENDING' "  type="button" class="btn btn-primary m-1" (click)="changeBookingStatus(booking.bookings.id , 'Approve' )">Approve</button>
+                        <button *ngIf="booking.bookings.status == 'PENDING' "  type="button" class="btn btn-danger m-1" (click)="changeBookingStatus(booking.bookings.id , 'Reject' )" >Reject</button></td>
                 </tr>
             </tbody>
           </table>

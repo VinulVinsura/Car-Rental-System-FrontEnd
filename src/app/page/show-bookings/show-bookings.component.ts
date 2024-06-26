@@ -24,10 +24,12 @@ export class ShowBookingsComponent implements OnInit {
   ngOnInit(): void {
     this.lodeAllBookings();
     console.log(this.allBookings);
+    
    
   }
 
   lodeAllBookings() {
+    
     this.http
       .get('http://localhost:9002/api/book-car/get-all-bookings')
       .subscribe((res) => {
@@ -51,6 +53,16 @@ export class ShowBookingsComponent implements OnInit {
         };
         this.allBookings.push(bookDetails)    
       });
+    }
+
+    changeBookingStatus(bookingId:number , status:string):any {
+       
+       this.http.get(`http://localhost:9002/api/book-car/changStatus/${bookingId}/${status}`).subscribe((res)=>{
+          console.log(res);
+          this.allBookings=[];
+          this.lodeAllBookings();
+       })
+      
     }
    
   
